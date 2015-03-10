@@ -1,13 +1,13 @@
 
-»ùÓÚ meteor  ¼òµ¥Î¢²©
+åŸºäºŽ meteor  ç®€å•å¾®åš
  
-1.²âÊÔ»·¾³ windows 
+1.æµ‹è¯•çŽ¯å¢ƒ windows 
 
-2. Ìõ¼þ 
-2.1 Ê×ÏÈ°²×°meteor °²×°µØÖ· win.meteor.com
+2. æ¡ä»¶ 
+2.1 é¦–å…ˆå®‰è£…meteor å®‰è£…åœ°å€ win.meteor.com
 
-3.ÔËÐÐÖ¸Áî 
+3.è¿è¡ŒæŒ‡ä»¤ 
 cd weibo
 meteor
 
-È»ºóµØÖ·À¸ÊäÈë localhost:3000
+ç„¶åŽåœ°å€æ è¾“å…¥ localhost:3000
