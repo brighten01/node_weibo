@@ -25,9 +25,13 @@
 
                 <div class="nav-collapse">
                     <ul class="nav">
+                        {{#if currentUser}}
                         <li class="active"><a href="/">首页</a></li>
+                        <li class="{{active.logout}}"><a href="/logout">退出</a></li>
+                        {{else}}
                         <li class="{{active.login}}"><a href="/login">登录</a></li>
                         <li class="{{active.reg}}"><a href="/reg">注册</a></li>
+                        {{/if}}
                     </ul>
                 </div>
             </div>
