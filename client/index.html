@@ -1,4 +1,12 @@
 <template name="index">
+    {{#if currentUser}}
+        <form class="well form-inline center">
+
+            <input type="text" class="span8" id="post">
+
+            <button class="btn btn-success" id="submit_article"><i class="icon-comment icon-white"></i>发表</button>
+        </form>
+    {{/if}}
     <div class="hero-unit">
         <h1>欢迎来到 weibo</h1>
         <p>weibo 是一个基于 Meteor 的微博系统。</p>
@@ -32,4 +40,10 @@
                 世界。我不知道这样的世界何时是一个尽头！</p>
         </div>
     </div>
+    {{#each posts}}
+    <h3>{{user.username}} 说</h3>
+    <p>发表时间:{{time}}</p>
+    <!--过滤html javascript 脚本-->
+    <p> {{#markdown}} {{post}} {{/markdown}}</p>
+    {{/each}}
 </template>

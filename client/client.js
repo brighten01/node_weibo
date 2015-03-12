@@ -3,6 +3,8 @@ Session.setDefault("currentUrl", {index: "active", login: "", reg: ""});
 
 Session.setDefault("info", {success: "", error: ""});
 
+Posts= new  Meteor.Collection("posts");
+
 Template.info.info = function () {
     return Session.get("info");
 }
@@ -14,6 +16,38 @@ Template.nav.active = function () {
     return Session.get("currentUrl");
 }
 
+
+/**
+ * 结果列表
+ */
+Template.index.posts=function (){
+    return Posts.find({},{sort:{time:-1}});
+}
+
+/**
+ * 加载index事件
+ */
+Template.index.events({
+    "click #submit_article":function(event){
+        event.preventDefault();
+        var $posts = $("#post").val();
+        if($posts.length ==0 || $posts.length>140){
+            Session.set("info",{success:"",error:"发表内容不能为空"});
+            return;
+        }
+        // 注意这里 集合不能和对应的列名重复，否则会显示成对象
+        Posts.insert({user:Meteor.user(),post:$posts ,time:new Date().getTime()},function (error){
+            if(error){
+                Session.set("info",{success:"",error:"发布失败"+error.reason});
+                return;
+            }else{
+                Session.set("info",{success:"发布成功"});
+                //Router.redirect("/");
+                $("#post").val("");
+            }
+        });
+     }
+});
 Template.reg.events({
     'click #submit_button': function (evt) {
 
