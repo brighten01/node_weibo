@@ -11,3 +11,6 @@ cd weibo
 meteor
 
 然后地址栏输入 localhost:3000
+``
+增加markdown
+meteor add showdown
